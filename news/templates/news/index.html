@@ -1,0 +1,63 @@
+{% include "news/header.html"%}
+<main>
+  <div>
+    {% if messages %} {% for message in messages %}
+    <div class="msg-container">{{message}}</div>
+    {%endfor%} {%endif%}
+  </div>
+  <div class="content">
+    <div class="row">
+      <div class="card">
+        <div class="card-header">
+          <h1>News from Times of india</h1>
+        </div>
+        <div class="card-body">
+          {% for n in toi_news %}
+          <p>>{{n}}</p>
+          <hr />
+          <br />
+          {% endfor %}
+          <!-- <br /> -->
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h1>News from NDTV</h1>
+        </div>
+        <div class="card-body">
+          {% for htn in ht_news %}
+          <p>> {{htn}}</p>
+          <p></p>
+          <hr />
+          <br />
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h1>News from The Economic Times</h1>
+        </div>
+        <div class="card-body">
+          {% for th in th_news %}
+          <p>> {{th}}</p>
+          <hr />
+          <br />
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+  // Get all info messages
+  var info_messages = document.getElementsByClassName('msg-container');
+
+  setTimeout(function(){
+      for (var i = 0; i < info_messages.length; i ++) {
+          // Set display attribute as !important, neccessary when using bootstrap
+          info_messages[i].setAttribute('style', 'display:none !important');
+      }
+  }, 3000);
+</script>

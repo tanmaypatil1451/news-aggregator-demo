@@ -1,0 +1,52 @@
+{%include "news/header.html"%}
+<main>
+  <div>
+    {% if messages %} {% for message in messages %}
+    <div>{{message}}</div>
+    {%endfor%} {%endif%}
+  </div>
+  <div class="content">
+    <div class="row">
+      <div class="card">
+        <div class="card-header">
+          <h1>News from Times of india</h1>
+        </div>
+        <div class="card-body">
+          {% for n in toi_tech_news %}
+          <p>>{{n}}</p>
+          <hr />
+          <br />
+          {% endfor %}
+          <!-- <br /> -->
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h1>News from NDTV</h1>
+        </div>
+        <div class="card-body">
+          {% for n in ndtv_tech_news %}
+          <p>> {{n}}</p>
+          <p></p>
+          <hr />
+          <br />
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h1>News from The Economic Times</h1>
+        </div>
+        <div class="card-body">
+          {% for n in etTech_news %}
+          <p>> {{n}}</p>
+          <hr />
+          <br />
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

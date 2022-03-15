@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>News Aggregato</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'news/index.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">News</div>
+        <input type="checkbox" id="click" />
+        <label for="click" class="menu-btn">
+          <i class="fas fa-bars"></i>
+        </label>
+        <!-- <label class="logo">News Aggregator</label> -->
+        <ul>
+          <li><a class="Active" href="#">Home</a></li>
+          <li><a href="tech">Tech</a></li>
+          <li><a href="sports">Sports</a></li>
+          <li><a href="entertainment">Entertainment</a></li>
+          <li><a href="/" class="btn btn-danger">Refresh News</a></li>
+          <li><a href="/signup">Register</a></li>
+          {% comment %} <li><a href="/signin">login</a></li> {% endcomment %}
+          {% if request.user.is_authenticated %}
+          <li><a href="/logout">logout</a></li>
+          <li><a href="#">Welcome, {{user.username}}</a></li>
+          {% else %}
+          <li><a href="/signin">login</a></li>
+          {%endif%}
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>
